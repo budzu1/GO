@@ -22,9 +22,11 @@ public class HandshakeController {
         if (clientConnectionService.ifConnected(HtmlUtils.htmlEscape(message.getLogin()))) {
             temp.setStatus("error");
             temp.setMessage("User with given login is already connected!");
+            System.out.println("bad login");
         } else {
             temp.setStatus("true");
             temp.setMessage("Succesfully conected!");
+            System.out.println("good login");
         }
 
         return temp;

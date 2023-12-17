@@ -4,6 +4,14 @@ public class Handshakemessage {
 
     private String login;
 
+    public Handshakemessage() {
+
+    }
+
+    public Handshakemessage(String login) {
+        this.login = login;
+    }
+
     public String getLogin() {
         return login;
     }

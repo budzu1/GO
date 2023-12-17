@@ -5,6 +5,15 @@ public class HandshakeReturnMessage {
     private String status;
     private String message;
 
+    public HandshakeReturnMessage() {
+
+    }
+
+    public HandshakeReturnMessage(String status, String message) {
+        this.status = status;
+        this.message = message;
+    }
+
     public String getMessage() {
         return message;
     }
