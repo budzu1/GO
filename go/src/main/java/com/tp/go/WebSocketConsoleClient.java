@@ -27,7 +27,6 @@ public class WebSocketConsoleClient {
         StompSessionHandler sessionHandler = new MyStompSessionHandler();
         try {
             StompSession stompSession = stompClient.connect(SERVER_URL, sessionHandler).get();
-            System.out.println("Connected to the server");
 
             // Read name from the keyboard
             System.out.print("Enter your name: ");
@@ -35,7 +34,7 @@ public class WebSocketConsoleClient {
             String name = scanner.nextLine();
 
             // Send name message
-            stompSession.send("/app/hello", name.getBytes());
+            stompSession.send("/app/hello", name);
 
             System.out.println("Press enter to exit");
             new Scanner(System.in).nextLine(); // Wait for user input to close the client

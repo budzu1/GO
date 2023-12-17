@@ -1,5 +1,7 @@
 package com.tp.go;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class HelloMessage {
 
     private String name;
