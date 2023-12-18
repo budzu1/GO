@@ -26,6 +26,8 @@ public class HandshakeController {
         String login = HtmlUtils.htmlEscape(message.getLogin());
 
         String sessionId = headerAccessor.getSessionId();
+        System.out.println(headerAccessor.getUser());
+        System.out.println(headerAccessor.getSessionId());
 
         if (clientConnectionService.ifConnected(login)) {
             temp.setStatus("error");
@@ -39,7 +41,7 @@ public class HandshakeController {
         }
 
         messagingTemplate.convertAndSendToUser(login, "/topic/loginResponse", temp);
-        System.out.println("returnhandshakehas been sent");
+        System.out.println("return handshake has been sent");
 
     }
 }

@@ -9,6 +9,8 @@ import java.util.Scanner;
 
 public class LoginStompSessionHandler extends StompSessionHandlerAdapter {
 
+    private StompSession session;
+
     @Override
     public Type getPayloadType(StompHeaders headers) {
         return HandshakeReturnMessage.class;
@@ -25,14 +27,17 @@ public class LoginStompSessionHandler extends StompSessionHandlerAdapter {
                 Thread.currentThread().interrupt();
             }
         }
+        session.disconnect();
     }
 
     @Override
     public void afterConnected(StompSession session, StompHeaders connectedHeaders) {
+        this.session = session;
         System.out.println("Connected to the server");
         System.out.print("Enter your login: ");
         Scanner scanner = new Scanner(System.in);
         String login = scanner.nextLine();
+        System.out.println(session.getSessionId());
 
         session.subscribe("/user/" + login + "/topic/loginResponse", this);
 
