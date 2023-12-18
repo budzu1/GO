@@ -17,7 +17,7 @@ public class LoginStompSessionHandler extends StompSessionHandlerAdapter {
     @Override
     public void handleFrame(StompHeaders headers, Object payload) {
         HandshakeReturnMessage response = (HandshakeReturnMessage) payload;
-        System.out.println("Received greeting: " + response.getMessage());
+        System.out.println("Received response: " + response.getMessage());
         if ("error".equals(response.getStatus())) {
             try {
                 Thread.sleep(2000);

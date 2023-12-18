@@ -32,8 +32,9 @@ public class ClientConnectionService implements ApplicationListener<SessionDisco
 
     @Override
     public void onApplicationEvent(SessionDisconnectEvent event) {
-        StompHeaderAccessor headerAccessor = StompHeaderAccessor.wrap(event.getMessage());
-        String sessionId = headerAccessor.getSessionId();
+        System.out.println("close detected");
+        String sessionId = event.getSessionId();
+        System.out.println("Session ID to remove: " + sessionId);
         removeConnection(sessionId);
     }
 }
